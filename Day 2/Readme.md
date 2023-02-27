@@ -56,7 +56,7 @@ This technique is often used to create a new scope to encapsulate modules.
 Method context refers to the way the `this` keyword behaves inside a function.
 - It is different in JavaScript than in other languages. As we are going to demonstrate here, the value of this is determined by how and where a function is called.
 - By extension, if a function is defined in the global scope.
--  `this` will be set to window (global object) when the code is executed in the browser.
+   `this` will be set to window (global object) when the code is executed in the browser.
 ```javascript
 var defaultLogger = {
   loggerName: "Default",
@@ -65,48 +65,69 @@ var defaultLogger = {
   }
 };
 
-defaultLogger.log("example 1"); // logs "[Default] example 1"
+defaultLogger.log("example 1");
+```
+```
+[Default] example 1
 ```
   Functions are invoked by appending parentheses to the end of the function reference.
 - For these examples, we’ll use a slightly altered highPass() function:
 ```javascript
 function highPass(number, cutoff) {
- cutoff = cutoff || this.cutoff;
- return (number >= cutoff);
+  cutoff = cutoff || this.cutoff;
+  return number >= cutoff;
 }
 var filter1 = {
- highPass: highPass,
- cutoff: 5
- },
- filter2 = {
- // No highPass here!
- cutoff: 3
- };
+    highPass: highPass,
+    cutoff: 5,
+  },
+  filter2 = {
+    // No highPass here!
+    cutoff: 3,
+  };
 
+console.log(filter1.highPass(3, 4));
+console.log(filter1.highPass(4, 4));
+console.log(filter1.highPass(5, 4));
 ```
-To clarify, the .call() method shared by all functions allows you to call any method or function on any object. In other words, it sets this inside the method to refer to the
-object of your choosing. The signature is:
+```
+false
+true
+true
+```
+- To clarify, the .call() method shared by all functions allows you to call any method or function on any object.
+- In other words, it sets this inside the method to refer to the object of your choosing.
+**The signature is:** 
 `someMethod.call(context, argument1, argument2, ...);`
-Here, context is the object you want this to refer to. If you need to pass an array of
+- context is the object you want this to refer to. If you need to pass an array of
 arguments, use .apply() instead:
 `someMethod.apply(context, someArray);`
 
 ## Function.prototype.bind()
 The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
 ```javascript
-const module = {
-  x: 42,
-  getX: function() {
-    return this.x;
-  }
+const user = {
+  firstName: "Mahmoud",
+  lastName: "Gamal",
+  getName(a, b, c) {
+    return this.firstName + " " + this.lastName + "" + a + b + c;
+  },
 };
 
-const unboundGetX = module.getX;
-console.log(unboundGetX()); // The function gets invoked at the global scope
-// Expected output: undefined
 
-const boundGetX = unboundGetX.bind(module);
-console.log(boundGetX());
-// Expected output: 42
+const moderator = {
+  firstName: "Ali",
+  lastName: "Mohamed",
+};
+console.log(user.getName.call(moderator,1,2,3));
+console.log(user.getName.apply(moderator,[1,2,3]));
+const bindFun=user.getName.bind(moderator) //Bind return function 
+console.log(bindFun("BIND",2,3));
+
+```
+```
+Ali Mohamed123
+Mahmoud Gamal123
+Ali MohamedBIND23
 
 ```
