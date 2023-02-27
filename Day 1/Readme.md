@@ -51,7 +51,7 @@ function processUserInput(callback) {
 processUserInput(greeting);
 
 ```
-##### Code example: synchronous callback :
+### Code example: synchronous callback :
 ```javascript
 const arr = [1, 2, 3]
 const doubler = x => x * 2
@@ -60,7 +60,7 @@ const doubled = arr.map(doubler)
 ```
 Here we pass the function doubler to the map method. map does not do anything in the background, and the function we pass is therefore also classified as a synchronous callback. But the syntax of asynchronous and synchronous callbacks is identical. Whether the function is used in an asynchronous or synchronous manner depends on the function or method it's passed to.
 
-##### Code example: asynchronous callback :
+### Code example: asynchronous callback :
 ```javascript
 const addButton = document.querySelector("#add")
 addButton.addEventListener("click", () => {
@@ -69,7 +69,7 @@ addButton.addEventListener("click", () => {
 ```
 The addEventListener method attaches an event handler to a DOM element. The details of this method is not important here; all we need to know is that the second parameter is treated as an asynchronous callback function which is only executed when the particular event is triggered on the target node. So, in this case, the async callback function is called every time we click on the #add element.
 
-##### higher order functions 
+### higher order functions 
 functions that take other functions as parameters, return a function, or both.
 ```javascript
 // Callback function, passed as a parameter in the higher order function

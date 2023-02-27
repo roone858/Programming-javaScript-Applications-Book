@@ -1,4 +1,4 @@
-#### function expression :
+### function expression :
 assigns a function body to the variable This implementation is called a function expression.
 
 ``` javascript
@@ -8,7 +8,7 @@ var bar = function () {
 
   ```
 
-#### Method literals :
+### Method literals :
  Methods are functions attached to objects.
 ``` javascript
 var lightBulbAPI = {
@@ -20,7 +20,7 @@ var lightBulbAPI = {
  };
 
   ```
-#### Lambdas Function :
+### Lambdas Function :
 The .addTo() function passed into .forEach() is a lambda
 .forEach() method is one of several functional enumerators added to JavaScript in the ECMAScript 5 specification
 ```javascript
@@ -38,7 +38,7 @@ functions). Some languages support lambdas but do not support closures.
 -  but not all higher order functions are lambdas.
 -  **If a function is used as an argument or return value, it’s a lambda.**
 
-#### Immediately Invoked Function Expressions :
+### Immediately Invoked Function Expressions :
 ```javascript
 (function(name) {
    console.log(name) // Code that runs in your function
@@ -52,7 +52,7 @@ This technique is often used to create a new scope to encapsulate modules.
 
 
 
-#### method context : 
+### method context : 
 Method context refers to the way the `this` keyword behaves inside a function.
 - It is different in JavaScript than in other languages. As we are going to demonstrate here, the value of this is determined by how and where a function is called.
 - By extension, if a function is defined in the global scope.
@@ -91,7 +91,7 @@ Here, context is the object you want this to refer to. If you need to pass an ar
 arguments, use .apply() instead:
 `someMethod.apply(context, someArray);`
 
-#### Function.prototype.bind()
+### Function.prototype.bind()
 The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
 ```javascript
 const module = {
