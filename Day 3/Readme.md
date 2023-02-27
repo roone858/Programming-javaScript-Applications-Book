@@ -175,3 +175,40 @@ function morph(options) {
 ```
 The pet store has 4 Dogs.
 ```
+## Method dispatch :
+Method dispatch is the mechanism that determines what to do when an object receives a message.
+  1. JavaScript does this by checking to see if the method exists on the object. If it doesn’t
+  2. the JavaScript engine checks the prototype object
+  3. If the method isn’t there, it checks the prototype’s prototype, and so on
+  4. When it finds a matching method, it calls the method and passes the parameters in.
+
+Dynamic dispatch enables polymorphism by selecting the appropriate method to run based on the parameters
+```javascript
+var methods = {
+    init: function (args) {
+      return "initializing...";
+    },
+    hello: function (args) {
+      return "Hello, " + args;
+    },
+    goodbye: function (args) {
+      return "Goodbye, cruel " + args;
+    },
+  },
+  greet = function greet(options) {
+    var args = [].slice.call(arguments, 0),
+      initialized = false,
+      action = "init"; // init will run by default
+    if (typeof options === "string" && typeof methods[options] === "function") {
+      action = options;
+      args.shift();
+    }
+
+    return methods[action](args);
+  };
+
+  console.log(greet("hello","Mahmoud"))
+```
+```
+Hello, Mahmoud
+```

@@ -25,18 +25,45 @@ console.log(newUser);
 
 function sortArg() {
   var args = [].slice.call(arguments, 0);
- return args.sort() 
-};
+  return args.sort();
+}
 
-console.log(sortArg('a','d','c','b'))
+console.log(sortArg("a", "d", "c", "b"));
 
 function morph(options) {
   var args = [].slice.call(arguments, 0),
-  animals = 'turtles'; // Set a default
-  if (typeof options === 'string') {
-  animals = options;
-  args.shift();
+    animals = "turtles"; // Set a default
+  if (typeof options === "string") {
+    animals = options;
+    args.shift();
   }
-  return('The pet store has ' + args + ' ' + animals + '.');
- }
- console.log(morph("Dogs",4))
+  return "The pet store has " + args + " " + animals + ".";
+}
+console.log(morph("Dogs", 4));
+
+////////////////////////////////////
+
+var methods = {
+    init: function (args) {
+      return "initializing...";
+    },
+    hello: function (args) {
+      return "Hello, " + args;
+    },
+    goodbye: function (args) {
+      return "Goodbye, cruel " + args;
+    },
+  },
+  greet = function greet(options) {
+    var args = [].slice.call(arguments, 0),
+      initialized = false,
+      action = "init"; // init will run by default
+    if (typeof options === "string" && typeof methods[options] === "function") {
+      action = options;
+      args.shift();
+    }
+
+    return methods[action](args);
+  };
+
+  console.log(greet("hello","mahmoud"))
