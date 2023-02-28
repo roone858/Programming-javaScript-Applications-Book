@@ -105,7 +105,7 @@ Callbacks are functions that you pass as arguments to be invoked when the callee
 
 Callbacks work great when you’re only waiting for one operation at a time, or when you only have one job to do when the response comes back
 
-###Promise 
+### Promise 
 
 - if you need to manage multiple asynchronous dependencies or you have several unrelated tasks waiting on the same data (such as a provider authorization)? That’s where promises can be very useful
   1. Promises are objects that allow you to add callback functions to success or failure queues.
