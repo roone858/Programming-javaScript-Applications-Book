@@ -58,7 +58,7 @@ var sortedBooks = books.sort(function (a, b) {
 
 
 
-
+--- 
 you don’t even have to think about writing a for loop. You frequently see a pattern like this repeated in most code:
 ```javascript
  var i, length = books.length;
