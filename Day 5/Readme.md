@@ -1,3 +1,20 @@
+# Day 5 
+
+- [Day 5](#day-5)
+  - [JavaScript Object Properties](#javascript-object-properties)
+    - [JavaScript Properties](#javascript-properties)
+    - [Accessing JavaScript Properties](#accessing-javascript-properties)
+  - [Objects :](#objects-)
+  - [Classical Inheritance Is Obsolete](#classical-inheritance-is-obsolete)
+  - [Fluent-Style JavaScript](#fluent-style-javascript)
+  - [prototypes](#prototypes)
+    - [Delegate Prototypes](#delegate-prototypes)
+    - [Prototype Cloning](#prototype-cloning)
+  - [The Flyweight Pattern](#the-flyweight-pattern)
+  - [Object Creation](#object-creation)
+  - [Factories](#factories)
+
+
 ## JavaScript Object Properties
 Properties are the most important part of any JavaScript object.
 ### JavaScript Properties

@@ -1,3 +1,14 @@
+# Day 1
+
+- [Day 1](#day-1)
+  - [introduction](#introduction)
+  - [callback function](#callback-function)
+  - [Code example: synchronous callback :](#code-example-synchronous-callback-)
+  - [Code example: asynchronous callback :](#code-example-asynchronous-callback-)
+  - [higher order functions](#higher-order-functions)
+
+---
+## introduction
 For a long time, there was no way to save data with JavaScript. If you wanted data to
 persist, you had to submit a form to a web server and wait for a page refresh.
 That hindered the process of creating responsive and dynamic web applications. However
@@ -9,8 +20,8 @@ JavaScript apps are event driven and non blockings
 
 JavaScript has very rich object-oriented (OO) features. The JSON (JavaScript Object Notation) 
 
-JavaScript uses a prototypal inheritance model. Instead of classes, you have object pro‐
-totypes. New objects automatically inherit methods and attributes of their parent object
+JavaScript uses a prototypal inheritance model. Instead of classes, you have object prototypes.
+ New objects automatically inherit methods and attributes of their parent object
 through the prototype chain. It’s possible to modify an object’s prototype at any time,
 making JavaScript a very flexible, dynamic language
 ``` javascript
@@ -85,3 +96,5 @@ function higherOrderFunction(func){
 
 higherOrderFunction(callbackFunction);
 ```
+
+[def]: #day-1

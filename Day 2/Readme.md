@@ -1,3 +1,15 @@
+# Day 2
+
+- [Day 2](#day-2)
+  - [function expression :](#function-expression-)
+  - [Method literals :](#method-literals-)
+  - [Lambdas Function :](#lambdas-function-)
+  - [Immediately Invoked Function Expressions :](#immediately-invoked-function-expressions-)
+  - [method context :](#method-context-)
+  - [Function.prototype.bind()](#functionprototypebind)
+
+---
+
 ## function expression :
 assigns a function body to the variable This implementation is called a function expression.
 

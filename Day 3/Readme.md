@@ -1,3 +1,16 @@
+# Day 3
+
+- [Day 3](#day-3)
+  - [Function Scope :](#function-scope-)
+  - [Hoisting :](#hoisting-)
+  - [Closures :](#closures-)
+  - [Method Design:](#method-design)
+  - [Named Parameters :](#named-parameters-)
+  - [Function Polymorphism](#function-polymorphism)
+  - [Method dispatch :](#method-dispatch-)
+
+---
+
 ## Function Scope :
 - Variable scope is the section of code in which the identifier refers to the expected value
 - block scope, meaning that you can create
@@ -212,3 +225,4 @@ var methods = {
 ```
 Hello, Mahmoud
 ```
+[def]: #day-3

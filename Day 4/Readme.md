@@ -1,3 +1,14 @@
+# Day 4
+
+- [Day 4](#day-4)
+  - [Functional Programming :](#functional-programming-)
+  - [Stateless Functions (aka Pure Functions)](#stateless-functions-aka-pure-functions)
+  - [Asynchronous Operations](#asynchronous-operations)
+    - [Callback](#callback)
+    - [Promise](#promise)
+
+---
+
 ## Functional Programming :
 - Functional programming is a style of programming that uses higher-order functions (a opposed to objects and data) to facilitate code organization and reuse.
 - A higher order function treats functions as data
@@ -137,3 +148,6 @@ var multiply = function multiply(x, y) {
 
 ```
 
+
+
+[def]: #day-4
