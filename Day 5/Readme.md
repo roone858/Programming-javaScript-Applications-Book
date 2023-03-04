@@ -134,3 +134,77 @@ changing state on switch1 did not change state on switch2
 - Unfortunately, extend() is not included in the JavaScript 
 - The cloning method is usually called .extend()
 - extend() is included in both jQuery and Underscore
+
+
+## The Flyweight Pattern
+- The flyweight pattern conserves system resources by storing all reusable properties and methods on a delegate object
+- as opposed to storing copies of them on every instance
+- this can save a lot of memory and improve system performance dramatically if there are many objects of the same type
+
+In JavaScript, the delegate prototype serves as a built-in flyweight delegate. You don’t need to worry about wiring it up yourself.
+Example :
+- Imagine you’re programming a video game and there is a common enemy that has dozens or hundreds of copies in the game world
+```javascript
+var enemyPrototype = {
+    name: "Wolf",
+    position: {
+      // Override this with setPosition
+      x: 0,
+      y: 0,
+    },
+    setPosition: function setPosition(x, y) {
+      this.position = {
+        x: x,
+        y: y,
+      };
+      return this;
+    },
+    health: 20, // Overrides automatically on change
+    bite: function bite() {},
+    evade: function evade() {},
+  },
+  spawnEnemy = function () {
+    return Object.create(enemyPrototype);
+  };
+  var wolf1 = spawnEnemy(),
+  wolf2 = spawnEnemy();
+wolf1.health=100 
+console.log(wolf1.health)
+console.log(wolf2.health)
+```
+```
+100
+20
+```
+## Object Creation
+Objects in JavaScript are sometimes created with constructor functions. For example:
+```javascript
+function Car(color, direction, mph) {
+  this.color = color || "pink";
+  this.direction = direction || 0; // 0 = Straight ahead
+  this.mph = mph || 0;
+  this.gas = function gas(amount) {
+    amount = amount || 10;
+    this.mph += amount;
+    return this;
+  };
+  this.brake = function brake(amount) {
+    amount = amount || 10;
+    this.mph = this.mph - amount < 0 ? 0 : this.mph - amount;
+    return this;
+  };
+}
+var myCar = new Car("red");
+console.log(myCar.color)
+```
+```
+red
+```
+You can get data encapsulation by using private variables:
+
+```javascript
+console.log(myCar.gas().mph)
+```
+```
+10
+```
