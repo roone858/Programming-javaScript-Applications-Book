@@ -1,17 +1,20 @@
-function Car(color, direction, mph) {
-  this.color = color || "pink";
-  this.direction = direction || 0; // 0 = Straight ahead
-  this.mph = mph || 0;
-  this.gas = function gas(amount) {
-    amount = amount || 10;
-    this.mph += amount;
-    return this;
+function factory() {
+  var highlander = {
+    name: "MacLeod",
   };
-  this.brake = function brake(amount) {
-    amount = amount || 10;
-    this.mph = this.mph - amount < 0 ? 0 : this.mph - amount;
-    return this;
+
+  return {
+    get: function get() {
+      return highlander;
+    },
   };
 }
-var myCar = new Car("red");
-console.log(myCar.gas().mph)
+
+var singleton = factory(),
+  hero = singleton.get(),
+  hero2 = singleton.get();
+
+hero.sword = "Katana";
+
+console.log(hero);
+console.log(hero2);

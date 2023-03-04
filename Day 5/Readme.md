@@ -208,3 +208,77 @@ console.log(myCar.gas().mph)
 ```
 10
 ```
+## Factories
+- Object literals have great advantages, but they offer no way to create data privacy. 
+- Encapsulation is useful because it hides implementation details from the client
+- But you already know that constructor functions come with some drawbacks that are best avoided.
+
+-  A better solution is to use a factory method
+  
+A factory is a method used to create other objects.
+- Its purpose is to abstract the details of object creation from object use
+  
+sometimes it is useful to abstract the singleton reference behind a method call.
+
+ You can make the singleton instance a private variable
+and return the reference from a closure:
+
+```javascript
+function factory() {
+  var highlander = {
+    name: "MacLeod",
+  };
+
+  return {
+    get: function get() {
+      return highlander;
+    },
+  };
+}
+
+var singleton = factory(),
+  hero = singleton.get(),
+  hero2 = singleton.get();
+
+hero.sword = "Katana";
+
+console.log(hero);
+console.log(hero2);
+```
+```
+{ name: 'MacLeod', sword: 'Katana' }
+{ name: 'MacLeod', sword: 'Katana' }
+```
+
+You can use the same closure technique to add the parking break functionality to the car:
+
+```javascript
+var car = function car(color, direction, mph) {
+    var isParkingBrakeOn = false;
+    return {
+      color: color || "pink",
+      direction: direction || 0,
+      mph: mph || 0,
+      gas: function gas(amount) {
+        amount = amount || 10;
+        this.mph += amount;
+        return this;
+      },
+      brake: function brake(amount) {
+        amount = amount || 10;
+        this.mph = this.mph - amount < 0 ? 0 : this.mph - amount;
+        return this;
+      },
+      toggleParkingBrake: function toggleParkingBrake() {
+        isParkingBrakeOn = !isParkingBrakeOn;
+        return this;
+      },
+      isParked: function isParked() {
+        return isParkingBrakeOn;
+      },
+    };
+  },
+  myCar = car("orange", 0, 5);
+```
+As with the constructor function, you get data privacy by encapsulating private data inside the closure, so the only way to manipulate the state of the parking brake is through the privileged method: .toggleParkingBrake().
+
